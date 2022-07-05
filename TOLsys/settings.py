@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l2c^@mkuu1ev80u@#hdh29(lc@tfs^49lpvw#w-eyrv7xsg88+'
-
+#SECRET_KEY = 'l2c^@mkuu1ev80u@#hdh29(lc@tfs^49lpvw#w-eyrv7xsg88+'
+SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['cacatol.ph']
+ALLOWED_HOSTS = ['cacatol.pythonanywhere.com']
 
 
 # Application definition
@@ -77,8 +77,11 @@ WSGI_APPLICATION = 'TOLsys.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cacatol$default',
+        'USER': 'cacatol',
+        'PASSWORD': 'ict7TUPC-19-0329',
+        'HOST': 'cacatol.mysql.pythonanywhere-services.com',
     }
 }
 
