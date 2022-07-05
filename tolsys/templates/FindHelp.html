@@ -1,0 +1,61 @@
+{% extends 'template.html' %}
+{% block title %} Tinkle Out Loud {% endblock %}
+{% block h3_text %} Consultation and Counseling Appointment (CACATOL) {% endblock %}
+{% block form_table_div %}
+{% load static %}
+	<script>
+		function list1(){
+			document.getElementById('countries').innerHTML = '<p><b>Egypt:</b> +20 7622381; 7621602; 7621603</p><p><b>Ghana:</b> 2332 444 71279 / 233 244 846 701</p><p><b>Kenya:</b> +254 722 178 177 / 020 2051323</p><p><b>Mauritius:</b> 800 93 93 / +230 5 483 7233 (Whats App)/ 112</p><p><b>Nigeria:</b> 0700-THE-JOY-HUB (0700-843-569-482)</p>';
+		}
+		function list2(){
+  			document.getElementById('countries').innerHTML = '<p><b>China:</b> 0800-810-1117 / 010-8295-1332 / 400 821 1215 / 273 9595</p><p><b>Hong Kong:</b> 2382 0000 / 2389 2222 / 2896 0000</p><p><b>India:</b> +918376804102 / +91-9820466726</p><p><b>Indonesia:</b> 500-454</p><p><b>Iran:</b> 00989127181037</p><p><b>Israel:</b> Hotline: 1201 / 972-9-8891333 / 972-76-8844400</p><p><b>Japan:</b> +81 (0) 3 5286 9090 / +81 (0) 6 4395 4343 </p><p><b>Jordan:</b>  0096 262 508 900 / 110</p><p><b>Kuwait:</b> 112</p><p><b>Mongolia:</b> (+976) 1800-2000</p><p><b>Russia:</b> 007 (8202) 577-577 / (7) 0942 224 621</p><p><b>Saudi Arabia:</b> 920 03 33 60</p><p><b>Singapore:</b> 1800- 221 4444 / 6389 2222</p><p><b>South Korea:</b> Counsel24: 1566-2525</p><p><b>Taiwan:</b> 0800 788 995 OR 1995</p><p><b>Turkey:</b> 0850 455 00 70 / 182</p><p><b>United Arab Emirates:</b> 800 46342 / 999</p><p><b>Vietnam:</b> 113</p>';
+		}
+		function list3(){
+			document.getElementById('countries').innerHTML = '<p><b>Australia:</b> 13 11 14 / 03 63 31 3355</p><p><b>Fiji:</b> (0679) 670565</p><p><b>Guam:</b> (671) 647-8833 / 647-8834</p><p><b>New Zealand:</b> 0800 543 354</p><p><b>Papua New Guinea:</b> 675 326 0011</p><p><b>Tonga:</b> 23000 / 25144</p><p><b>Samoa:</b> (+381) 21-6623-393</p>';
+		}
+		function list4(){
+  			document.getElementById('countries').innerHTML = '<p><b>Belgium:</b> 106 / 107</p><p><b>Germany:</b> 0800 1110 111 / 0800 1110 222</p><p><b>North Macedonia:</b> 02 2465 316</p><p><b>Romania:</b> 0800 801 200</p><p><b>Spain:</b> 717 003 717</p><p><b>Sweden:</b> 90101</p><p><b>Switzerland:</b> 143</p><p><b>Ukraine:</b> 0487 327715 / 0482 226565</p><p><b>United Kingdom:</b> 116123 / +44 (0) 8457 90 90 90 (UK - local rate)</p>';
+		}
+		function list5(){
+			document.getElementById('countries').innerHTML = '<p><b>Alberta:</b> 1-800-565-3801</p><p><b>British Columbia:</b> 1-888-562-12144</p><p><b>Canada:</b> 1.833.456.4566 (Hotline) / 45645 (Text)</p><p><b>Costa Rica:</b> 506-253-5439</p><p><b>Cuba:</b> 532 348 14 49</p><p><b>Dominican Republic:</b>  1-800-273-8255 or call 911</p><p><b>El Salvador:</b>  911</p><p><b>Haiti:</b> 1-800-273-8255 or call 114</p><p><b>Jamaica:</b> 1-888-429-5273</p><p><b>Manitoba:</b> 1-888-322-3019</p><p><b>Mexico:</b> 525-510-2550 / 453777 / 018004727835</p><p><b>Nicaragua:</b> 505-268-6171</p>';
+		}
+		function list6(){
+  			document.getElementById('countries').innerHTML = '<p><b>Argentina:</b> (011) 5275-1135</p><p><b>Bolivia:</b> (00 591 4) 4 25 42 42</p><p><b>Brazil:</b> 55 11 31514109</p><p><b>Chile:</b> (00 56 42) 22 12 00</p><p><b>Colombia:</b> (00 57 4) 448 2945</p><p><b>Ecuador:</b> (593) 2 6000477 / (593) 2 2923327</p><p><b>Honduras:</b> 9978-2335 – 9992-1002</p><p><b>Peru:</b> (00 51 1) 273 8026.</p><p><b>Venezuala:</b> 0241-8433308</p><p><b>Trinidad:</b> (868) 645 2800 / 645 6616</p>';
+		}
+	</script>
+	<div class="notefh">
+		<h3>If you’re feeling suicidal…</h3>
+		<p>Problems don’t seem temporary—they seem overwhelming and permanent. But if you reach out for help, you will feel better. Even when life seems bleak and hopeless, know that you are not alone.</p>
+	</div>
+	<div class="tooltip">
+		<h3>PHILIPPINE NATIONAL MENTAL HEALTH CRISIS HOTLINE</h3>
+			<p>0966 351 4518 / 0917 899 8727 (Globe /Tm)</p>
+			<p>0966 351 4518 (Smart / Sun / TNT)</p>
+			<span class="tooltiptext">Please contact the hotlines, do not hesitate.</span>
+	</div>
+
+	<br>
+	<center>
+	<div>
+		<label for="age"><b>Other Countries: </b></label>
+		<br>
+		<br>
+		<input type="radio" onclick="list1()" name="hl"><b>Africa</b>
+		<input type="radio"  onclick="list2()" name="hl"><b>Asia</b>
+		<input type="radio" onclick="list3()" name="hl"><b>Australia & Oceana</b>
+		<input type="radio"  onclick="list4()" name="hl"><b>Europe</b>
+		<input type="radio" onclick="list5()" name="hl"><b>North America</b>
+		<input type="radio"  onclick="list6()" name="hl"><b>South America</b>
+	</div>
+	<br>
+
+	<div class="searchfield">
+			<p class="choosep" id="countries">Please choose above.</p>
+	</div>
+	</center>
+
+	<center>
+		<p class="quote"><em>“In times of pain, when the future is too terrifying to contemplate and the past too painful to remember, I have learned to pay attention to right now. The precise moment I was in was always the only safe place for me.” -Julia Cameron</em></p>
+	</center>
+
+{% endblock %}

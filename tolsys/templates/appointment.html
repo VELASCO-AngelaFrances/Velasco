@@ -1,0 +1,94 @@
+{% extends 'template.html' %}
+{% block title %} Tinkle Out Loud {% endblock %}
+{% block h3_text %} Consultation and Counseling Appointment (CACATOL) {% endblock %}
+{% block form_table_div %}
+{% load static %}
+<table>
+	<tr>
+		<td class>Patient Name: </td>
+		<td class="surspace">Sex: </td>
+		<td class="surspace">Age: </td>
+	</tr>
+	<tr>
+		<td class>{{appointment.fname.upper}} {{appointment.mname.upper}} {{appointment.sname.upper}}</td>
+		<td class="surspace">{{appointment.sex}}</td>
+		<td class="surspace">{{appointment.age}}</td>
+	</tr>
+</table>
+		<form method="POST" action="{% url 'app_url' appointment.id %}">
+		{% csrf_token %}
+		<h2>Counseling and Consultation Schedule</h2>
+		<h4>Set your appointment here.</h4>
+		<fieldset>
+		<br>
+		<label for="kind">Kind of Session: </label>
+		<select id="kind" name="kind">
+			<optgroup label="Appointment">
+				<option>Psychiatry Initial Session</option>
+				<option>Psychiatry (Follow Up)</option>
+			</optgroup>
+			<optgroup label="Line Up">
+				<option>Free Counseling</option>
+			</optgroup>
+		</select>
+		<br>
+		<br>
+		<label for="type">Type of Session: </label>
+		<select id="type" name="type">
+				<option>Clinic Based</option>
+			<optgroup label="Online">
+				<option>Free Counseling</option>
+				<option>Messenger</option>
+				<option>Skype</option>
+			</optgroup>
+		</select>
+		<br>
+		<br>
+		<label for="adate">Date: </label>
+		<input id="adate" type="date" name="adate" required>
+		<!-- <input type="text" id="date" name="date" placeholder="mm / dd / yyyy"> -->
+		<br>
+		<br>
+		<label for="atime">Time: </label>
+		<select id="atime" name="atime">
+			<optgroup label="Morning Sessions">
+				<option>7:00am - 8:00am</option>
+				<option>8:00am - 9:00am</option>
+				<option>9:00am - 10:00am</option>
+				<option>10:00am - 11:00am</option>
+			</optgroup>
+			<optgroup label="Afternoon Sessions">
+				<option>1:00pm - 2:00pm</option>
+				<option>2:00pm - 3:00pm</option>
+				<option>3:00pm - 4:00pm</option>
+				<option>4:00pm - 5:00pm</option>
+			</optgroup>
+			<optgroup label="Evening Sessions">
+				<option>7:00pm - 8:00pm</option>
+				<option>8:00pm - 9:00pm</option>
+				<option>10:00pm - 11:00pm</option>
+			</optgroup>
+		</select>
+		<br>
+		<br>
+		<br>
+<!-- 		<label for="policy">Terms & Conditions and Privacy Policy.</label>
+		<br>
+		<br>
+		<input type="radio" id="agree" name="policy" value="agree">
+		<label for="policy">Agree</label>
+		<input type="radio" id="disagree" name="policy" value="disagree">
+		<label for="policy">Disagree</label> -->
+		</div>
+		<input class="surbutton" id="btnsched" type="submit" value="Confirm" name="sched">
+		</fieldset>
+		</form>
+		<table class="surveytab" id="summaryTable">
+			{% for sched in patientIdd %}
+			<tr>
+				<td>{{forloop.counter}}.</td>
+				<td>You have set a {{sched.kdsession}} that will be held at ({{sched.tpsession}}) on {{sched.adate}}, {{sched.atime}}.</td>
+			</tr>
+			{% endfor %}
+		</table>
+{% endblock %}

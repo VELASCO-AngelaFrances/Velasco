@@ -1,0 +1,404 @@
+{% extends 'template.html' %}
+{% block title %} Tinkle Out Loud {% endblock %}
+{% block h3_text %} Consultation and Counseling Appointment (CACATOL) {% endblock %}
+{% block form_table_div %}
+{% load static %}
+	<script>
+      function ShowRadioButtonDiv (IdBaseName, NumberOfButtons) {
+            for (x=1;x<=NumberOfButtons;x++) {
+                  CheckThisButton = IdBaseName + x;
+                  ThisDiv = IdBaseName + x +'Div';
+            if (document.getElementById(CheckThisButton).checked) {
+                  document.getElementById(ThisDiv).style.display = "block";
+             }
+            else {
+                  document.getElementById(ThisDiv).style.display = "none";
+            }
+            }
+            return false;
+            }
+
+      function showValue(newValue, resultDiv) {
+        document.getElementById(resultDiv).innerHTML = newValue;
+        updateSum();
+      }
+function vCheck() {
+      let total = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      document.getElementById("totalResult").innerHTML = "<b>Your Score:</b> 0 / 18";
+      if (total == 1) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" +  total + " / 18</b>";
+      } else if (total == 2) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 3) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 4) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 5) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 6) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 7) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 8) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 9) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 10) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 11) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 12) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 13) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 14) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 15 ) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 16) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 17) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else if (total == 18) {
+            document.getElementById("totalResult").innerHTML = "Your Score: <b>" + total + " / 18</b>";
+      } else {
+            document.getElementById("totalResult").innerHTML = "Your Score: 0 / 18</b>";
+      }
+      }
+
+      window.onload=function(){
+      var inputs = document.getElementsByClassName('sum'),
+      total  = document.getElementById('percentage-total');
+
+      for (var i=0; i < inputs.length; i++) {
+      inputs[i].onchange = function() {
+      var add = this.value * (this.checked ? 1 : -1);
+      total.innerHTML = parseFloat(total.innerHTML) + add;
+      if (total.innerHTML <= 3) {
+            document.getElementById('pres').innerHTML = "<em>, very low. Have some time to rest, you deserve it!</em>";
+      } else if (total.innerHTML <= 5){
+            document.getElementById('pres').innerHTML = "<em> , low percentage. Maybe you're just having a bad day.</em>";
+      } else if (total.innerHTML <= 8) {
+            document.getElementById('pres').innerHTML = "<em> , remember it is not bad to have some fun, pamper yourself and do not feel guilty about it.</em>";
+      } else if (total.innerHTML <= 10) {
+            document.getElementById('pres').innerHTML = "<em> , your depression may last for about <b>an hour</b>, make good use of your up times. Take care of yourself.</em>";
+      } else if (total.innerHTML <= 13) {
+            document.getElementById('pres').innerHTML = "<em> , you are half way to mild depression. This may last for <b>1-3 hours</b>, play uplifting  music and rest well. You deserve it, have some time to rest!";
+      } else if (total.innerHTML <= 15) {
+            document.getElementById('pres').innerHTML = "<em> , your depression may last for about <b>3-5 hours</b> give yourself another day, another chance. You will find your courage eventually. </em>";
+      } else if (total.innerHTML <= 18) {
+            document.getElementById('pres').innerHTML = "<em> , your depression may last for about <b>5-10 hours hours</b>. Don’t give up on yourself just yet. You are allowed to feel messed up, there is a crack in everything, that’s how the light gets in</em>";
+      } else if (total.innerHTML <= 20) {
+            document.getElementById('pres').innerHTML = "<em> , your depression may last for <b>10-20 hours</b>. Always find time for the things that make you feel happy to be alive.</em>";
+      } else if (total.innerHTML <= 23) {
+            document.getElementById('pres').innerHTML = "<em> , you are close to mild depression. This may last for about <b>1-2 days hours</b> talk to yourself like you would to someone you love. You are enough!</em>";
+      } else if (total.innerHTML <= 25) {
+            document.getElementById('pres').innerHTML = "<em> , you are probably experiencing a mild depression that will lasts for about <b>2-3 days</b>, note that life has so many different chapters.</em>";
+      } else if (total.innerHTML <= 28) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for about <b>3-5 days</b>, remember you will not always feel this way. </em>";
+      } else if (total.innerHTML <= 30) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>5-7 days</b>, at some point you just have to let go of what drowning you.</em>";
+      } else if (total.innerHTML <= 33) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>1 week</b>, don't feel guilty for doing what is best for you.</em>";
+      } else if (total.innerHTML <= 35) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>2 weeks</b>, if you get tired, learn to rest and not to quit.</em>";
+      } else if (total.innerHTML <= 38) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>3 weeks</b>, you will feel better than that, maybe not yet, but you will.</em>";
+      } else if (total.innerHTML <= 40) {
+            document.getElementById('pres').innerHTML = "<em> , you are probably experiencing a moderate depression which will last for atleast <b>a month</b>, our greatest glory is not in never failing but in rising up every time we fail.</em>";
+      } else if (total.innerHTML <= 43) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>3-4 weeks</b>, remember no matter how dark the moment, love and hope are always possible.</em>";
+      } else if (total.innerHTML <= 45) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for <b>1-2 months</b>, even if happiness forgets you a little bit, never completely forget about it.</em>";
+      } else if (total.innerHTML <= 48) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>2-3 months</b>, in times of great stress or adversity, it’s always best to keep busy, to plow your anger and your energy into something positive.</em>";
+      } else if (total.innerHTML <= 50) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>3-4 months</b>, remember, no one can make you feel inferior without your consent.</em>";
+      } else if (total.innerHTML <= 53) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for <b>4-5 months</b>, difficult roads lead to beautiful destinations. The best is yet to come.</em>";
+      } else if (total.innerHTML <= 56) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>5-6 months</b>, sometimes, you need to be alone. Not to be lonely, but to enjoy your free time being yourself.</em>";
+      } else if (total.innerHTML <= 59) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for not more than <b>6-7 months</b>, you can’t be strong all the time. Sometimes you just need to be alone and let your tears out.</em>";
+      } else if (total.innerHTML <= 62) {
+            document.getElementById('pres').innerHTML = "<em> , you are close to moderate depression. This will last for not more than <b>7-8 months</b>, you can’t be strong all the time. Sometimes you just need to be alone and let your tears out.</em>";
+      } else if (total.innerHTML <= 65) {
+            document.getElementById('pres').innerHTML = "<em> , you are probably experiencing a moderate depression. This will last for <b>8-9 months</b>, the hardest walk you can make is alone. But it’s the walk that will make you stronger.</em>";
+      } else if (total.innerHTML <= 68) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for atleast <b>3 days</b> but not more than <b>9-10 months</b>, the greatest mistake we make is living in constant fear that we will make one.</em>";
+      } else if (total.innerHTML <= 71) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for about <b>a year</b>, the head worries and the heart feels. They cannot function at the same time. When your feelings dominate, worry dissolves.</em>";
+      } else if (total.innerHTML <= 74) {
+            document.getElementById('pres').innerHTML = "<em> , your depression may last for about <b>a years and months</b>, when you’re feeling anxious, remember that you’re still you. You are not anxiety. </em>";
+      } else if (total.innerHTML <= 77) {
+            document.getElementById('pres').innerHTML = "<em> , you are probably experiencing a severe depression. This may last for about <b>1-3 years</b>, once you choose hope, anything is possible.</em>";
+      } else if (total.innerHTML <= 80) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for <b>a long time</b>, maybe you have to know the darkness before you can appreciate the light.</em>";
+      } else if (total.innerHTML <= 83) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for <b>a very long time</b>, There are far, far better things ahead than anything we leave behind.</em>";
+      } else if (total.innerHTML <= 86) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for <b>3 or more years</b>, the head worries and the heart feels. They cannot function at the same time. When your feelings dominate, worry dissolves.</em>";
+      } else if (total.innerHTML <= 90) {
+            document.getElementById('pres').innerHTML = "<em> , you are severely depressed, this may last for <b>5 or more years</b>, when you’re feeling anxious, remember that you’re still you. You are not anxiety. Seek. professional help.</em>";
+      } else if (total.innerHTML <= 95) {
+            document.getElementById('pres').innerHTML = "<em> , your depression will last for <b>almost half of your life</b>, once you choose hope, anything is possible, seek professional consultation.</em>";
+      } else if (total.innerHTML <= 100) {
+            document.getElementById('pres').innerHTML = "<em> , you are severely experiencing depression. There's a high probability that this may last for <b>the rest of your life.</b> Please seek professional consultation right away.</em>";
+      } else {
+            document.getElementById('pres').innerHTML = " "
+      }
+      }
+      }
+      }
+
+      function swapConfig(x) {
+      var radioName = document.getElementsByName(x.name);
+      for(i = 0 ; i < radioName.length; i++){
+            document.getElementById(radioName[i].id.concat("Settings")).style.display="none";
+      }
+            document.getElementById(x.id.concat("Settings")).style.display="initial";
+      }
+
+      function addNumbers()
+      {
+          var val1 = parseInt(document.querySelector('input[name = "radioA"]:checked').value);
+          var val2 = parseInt(document.querySelector('input[name = "radioB"]:checked').value);
+          var val3 = parseInt(document.querySelector('input[name = "radioC"]:checked').value);
+          var val4 = parseInt(document.querySelector('input[name = "radioD"]:checked').value);
+          var val5 = parseInt(document.querySelector('input[name = "radioE"]:checked').value);
+          var val6 = parseInt(document.querySelector('input[name = "radioF"]:checked').value);
+          var val7 = parseInt(document.querySelector('input[name = "radioG"]:checked').value);
+          var val8 = parseInt(document.querySelector('input[name = "radioH"]:checked').value);
+          var val9 = parseInt(document.querySelector('input[name = "radioI"]:checked').value);
+          var val10 = parseInt(document.querySelector('input[name = "radioJ"]:checked').value);
+          var val11 = parseInt(document.querySelector('input[name = "radioK"]:checked').value);
+          var val12 = parseInt(document.querySelector('input[name = "radioL"]:checked').value);
+          var ansD = document.getElementById("answer");
+
+          ansD.value = val1 + val2 + val3 + val4 + val5 + val6 + val7 + val8 + val9 + val10 + val11 + val12;
+
+          if (ansD.value <= 6) {
+            document.getElementById("stresslvl").innerHTML = "Very Low Stress"
+          } else if (ansD.value <= 12) {
+            document.getElementById("stresslvl").innerHTML = "Low Stress"
+          } else if (ansD.value <= 18) {
+            document.getElementById("stresslvl").innerHTML = "Mild Stress"
+          } else if (ansD.value <= 24) {
+            document.getElementById("stresslvl").innerHTML = "Moderate Stress"
+          } else if (ansD.value <= 30) {
+            document.getElementById("stresslvl").innerHTML = "High Stress"
+          } else {
+            document.getElementById("stresslvl").innerHTML = "Very High Stress"
+          }
+      }
+      function check(){
+          var aaaa = document.querySelector("input[name=radioA]:checked");
+          var bbbb = document.querySelector("input[name=radioB]:checked");    
+          var cccc = document.querySelector("input[name=radioC]:checked");
+          var dddd = document.querySelector("input[name=radioD]:checked");
+          var eeee = document.querySelector("input[name=radioE]:checked");
+          var ffff = document.querySelector("input[name=radioF]:checked");    
+          var gggg = document.querySelector("input[name=radioG]:checked");
+          var hhhh = document.querySelector("input[name=radioH]:checked");
+          var iiii = document.querySelector("input[name=radioI]:checked");
+          var jjjj = document.querySelector("input[name=radioJ]:checked");    
+          var kkkk = document.querySelector("input[name=radioK]:checked");
+          var llll = document.querySelector("input[name=radioL]:checked");
+          var btn = document.getElementById("Button");
+
+          if(aaaa && bbbb && cccc && dddd && eeee && ffff && gggg && hhhh && iiii && jjjj && kkkk && llll){
+            btn.disabled = false;
+          } else {
+            alert("Please rate completely.");
+          }     
+      }
+	</script>
+
+</head>
+		<body>
+    	<h2 class="topicsh2">What is Depression?</h2>
+    		<p class="topicsp">According to APA, depression is a negative affective state, ranging from unhappiness and discontent to an extreme feeling of sadness, pessimism, and despondency, that interferes with daily life. It has origins in our body, genes, temperament, pattern of thinking, way of handling emotions, family history, relationships, past and current experiences.</p>
+    		<p class="topicsp">It is also called as mood or affective disorders. It is a threatening condition that adversely affects the way person thinks, feels, acts and behaves. It can appear suddenly with no apparent reason or it may triggered by illness, hormonal imbalance or even of seasons.</p>
+
+   
+    	<h2 class="topicsh2">Depression In Women</h2>
+    		<p class="topicsp">Depression is one of the most common mental health conditions. Do you feel useless, empty, and sad? Learn about the indications, symptoms, and causes of depression in women, as well as what you can do to help yourself recover.</p>
+
+    	</body>
+
+	<div class="riskcolumn">
+   	<form name=form1 method=post action=check.php>
+
+    <input type="radio" onchange="swapConfig(this)" name="urlOptions" id="production" checked="checked" />
+    <b><label for="production">Challenges in Life</label></b>
+   
+    <input type="radio" onchange="swapConfig(this)" name="urlOptions" id="development" />
+     <b><label for="development">Excessive Stress</label></b><br><br>
+
+  <div id="productionSettings">
+    <em><label>Check those which apply to you. (Remember, men, this list applies only to women).</label></em><br><br>
+      <input type="checkbox" id="chk1" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk1"> Frustration over several life issues</label>
+      <br>
+      <input type="checkbox" id="chk2" name="chk" value="3" class="sum" onclick="vCheck()">
+      <label for="chk2"> Disappointment or feelings of hopelessness</label>
+      <br>
+      <input type="checkbox" id="chk3" name="chk" value="7" class="sum" onclick="vCheck()">
+      <label for="chk3"> Conflicts in marriage</label>
+      <br>
+      <input type="checkbox" id="chk4" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk4"> Conflicts over children</label>
+      <br>
+      <input type="checkbox" id="chk5" name="chk" value="2" class="sum" onclick="vCheck()">
+      <label for="chk5"> Dealing with difficult people or relationships</label>
+      <br>
+      <input type="checkbox" id="chk6" name="chk" value="10" class="sum" onclick="vCheck()">
+      <label for="chk6"> Parenting struggles or burden over being a mother</label>
+      <br>
+      <input type="checkbox" id="chk7" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk7"> Keeping a proper balance in all areas of your life</label>
+      <br>
+      <input type="checkbox" id="chk8" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk9">  Unresolved identity as a woman</label>
+      <br>
+      <input type="checkbox" id="chk9" name="chk" value="10" class="sum" onclick="vCheck()">
+      <label for="chk10"> Knowing who you are, your destiny, purpose and feeling fulfilled</label>
+      <br>
+      <input type="checkbox" id="chk10" name="chk" value="1" class="sum" onclick="vCheck()">
+      <label for="chk11"> Fear of being transformed</label>
+      <br>
+      <input type="checkbox" id="chk11" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk12"> Battling the same old issues e.g. family stuff, charactertraits</label>
+      <br>
+      <input type="checkbox" id="chk12" name="chk" value="10" class="sum" onclick="vCheck()">
+      <label for="chk14"> Unexpected change or loss</label>
+      <br>
+      <input type="checkbox" id="chk13" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk16"> Neglecting to care for yourself</label>
+      <br>
+      <input type="checkbox" id="chk14" name="chk" value="3" class="sum" onclick="vCheck()">
+      <label for="chk17"> Not living a balanced life e.g. going to school while working part-time</label>
+      <br>
+      <input type="checkbox" id="chk15" name="chk" value="10" class="sum" onclick="vCheck()">
+      <label for="chk18"> Being physically ill or having a loved one who is ill</label>
+      <br>
+      <input type="checkbox" id="chk16" name="chk" value="5" class="sum" onclick="vCheck()">
+      <label for="chk19"> Not having a place to call home</label>
+      <br>
+      <input type="checkbox" id="chk17" name="chk" value="3" class="sum" onclick="vCheck()">
+      <label for="chk20"> Not being able to have children <label class="yourscore" id="totalResult">Your Score: 0 / 18</label></label></label>
+      <br>
+      <input type="checkbox" id="chk18" name="chk" value="6" class="sum" onclick="vCheck()">
+      <label for="chk21"> Abuse (physical, sexual, or emotional) <br>
+      <br>
+
+      <div class="result">
+            <label>Specific Percentage <em>(weight per each item): </em><b><span id="percentage-total">0</span>% depressed </b></label><label><span id="pres"></span></label>
+      </div>
+  </div>
+      
+      <div id="developmentSettings" style="display:none">
+      <br/><label>Indicate the ways you are experiencing stress now. (0 as the lowest, 3 as the highest)</label>
+      <table>
+            <tr>
+            <th scope="col"></th>
+            <th scope="col">0</th>
+            <th scope="col">1</th>
+            <th scope="col">2</th>
+            <th scope="col">3</th>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Chronic fatigue; exhaustion</div></th>
+                  <td><input type="radio" id="value1a" name="radioA" value="0"></td>
+                  <td><input type="radio" id="value1b" name="radioA" value="1"></td>
+                  <td><input type="radio" id="value1c" name="radioA" value="2"></td>
+                  <td><input type="radio" id="value1d" name="radioA" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Sleeping problems</div></th>
+                  <td><input type="radio" id="value2a" name="radioB" value="0"></td>
+                  <td><input type="radio" id="value2b" name="radioB" value="1"></td>
+                  <td><input type="radio" id="value2c" name="radioB" value="2"></td>
+                  <td><input type="radio" id="value2d" name="radioB" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Aches and pains</div></th>
+                  <td><input type="radio" id="value3a" name="radioC" value="0"></td>
+                  <td><input type="radio" id="value3b" name="radioC" value="1"></td>
+                  <td><input type="radio" id="value3c" name="radioC" value="2"></td>
+                  <td><input type="radio" id="value3d" name="radioC" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Nervousness; tension</div></th>
+                  <td><input type="radio" id="value4a" name="radioD" value="0"></td>
+                  <td><input type="radio" id="value4b" name="radioD" value="1"></td>
+                  <td><input type="radio" id="value4c" name="radioD" value="2"></td>
+                  <td><input type="radio" id="value4d" name="radioD" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Moodiness</div></th>
+                  <td><input type="radio" id="value5a" name="radioE" value="0"></td>
+                  <td><input type="radio" id="value5b" name="radioE" value="1"></td>
+                  <td><input type="radio" id="value5c" name="radioE" value="2"></td>
+                  <td><input type="radio" id="value5d" name="radioE" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Anxiety</div></th>
+                  <td><input type="radio" id="value6a" name="radioF" value="0"></td>
+                  <td><input type="radio" id="value6b" name="radioF" value="1"></td>
+                  <td><input type="radio" id="value6c" name="radioF" value="2"></td>
+                  <td><input type="radio" id="value6d" name="radioF" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Confusion</div></th>
+                  <td><input type="radio" id="value7a" name="radioG" value="0"></td>
+                  <td><input type="radio" id="value7b" name="radioG" value="1"></td>
+                  <td><input type="radio" id="value7c" name="radioG" value="2"></td>
+                  <td><input type="radio" id="value7d" name="radioG" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Mental fatigue</div></th>
+                  <td><input type="radio" id="value8a" name="radioH" value="0"></td>
+                  <td><input type="radio" id="value8b" name="radioH" value="1"></td>
+                  <td><input type="radio" id="value8c" name="radioH" value="2"></td>
+                  <td><input type="radio" id="value8d" name="radioH" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Excessive worry</div></th>
+                  <td><input type="radio" id="value9a" name="radioI" value="0"></td>
+                  <td><input type="radio" id="value9b" name="radioI" value="1"></td>
+                  <td><input type="radio" id="value9c" name="radioI" value="2"></td>
+                  <td><input type="radio" id="value9d" name="radioI" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Isolation</div></th>
+                  <td><input type="radio" id="value10a" name="radioJ" value="0"></td>
+                  <td><input type="radio" id="value10b" name="radioJ" value="1"></td>
+                  <td><input type="radio" id="value10c" name="radioJ" value="2"></td>
+                  <td><input type="radio" id="value10d" name="radioJ" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Nagging / yelling at others</div></th>
+                  <td><input type="radio" id="value11a" name="radioK" value="0"></td>
+                  <td><input type="radio" id="value11b" name="radioK" value="1"></td>
+                  <td><input type="radio" id="value11c" name="radioK" value="2"></td>
+                  <td><input type="radio" id="value11d" name="radioK" value="3"></td>
+            </tr>
+            <tr>
+            <th scope="row"><div class="lefttext">Feeling lonely and unloved</div></th>
+                  <td><input type="radio" id="value12a" name="radioL" value="0"></td>
+                  <td><input type="radio" id="value12b" name="radioL" value="1"></td>
+                  <td><input type="radio" id="value12c" name="radioL" value="2"></td>
+                  <td><input type="radio" id="value12d" name="radioL" value="3"></td>
+            </tr>
+      </table>
+      <br>
+
+      <input type="button" name="Sumbit" value="Submit" onclick="check()"/>
+            <input id="Button" type="button" name="Sumbit" value="Calculate" onclick="addNumbers()" disabled />
+            <br><br>
+            Total  = <input type="text" id="answer" name="answer" value=""/>
+            <label class="level" id="stresslvl"></label>
+      </div>
+      </body>
+{% endblock %}

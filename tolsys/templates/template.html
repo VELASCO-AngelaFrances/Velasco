@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="icon" href="{% static 'img/logopic.svg' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="indexbg">
+	<header class="center">
+		<img class="indeximg" src="{% static 'img/logopic.svg' %}" alt="Logo here."/>
+		<a class="indexa" href="{% url 'mainpage' %}">CACATOL</a>
+		<a class="indexa" href="{% url 'topic' %}">Topic</a>
+		<a class="indexa" href="{% url 'newsroom' %}">Newsroom</a>
+		<a class="indexa" href="{% url 'findhelp' %}">Find Help</a>
+		<a class="indexa" href="{% url 'aboutus' %}">About Us</a><hr>
+	</header>
+	<h2 class="title">TINKLE OUT LOUD</h2>
+		<em class="subtitle"><h3>Consultation and Counseling Appointment (CACATOL)</h3></em>
+	<div>
+	{% block form_table_div %}{% endblock %}
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends 'template.html' %}
+{% block title %} Tinkle Out Loud {% endblock %}
+{% block h3_text %} Consultation and Counseling Appointment (CACATOL) {% endblock %}
+{% block form_table_div %}
+{% load static %}
+<table>
+	<tr>
+		<td class>Patient Name: </td>
+		<td class="surspace">Sex: </td>
+		<td class="surspace">Age: </td>
+	</tr>
+	<tr>
+		<td class>{{newPatient.fname.upper}} {{newPatient.mname.upper}} {{newPatient.sname.upper}}</td>
+		<td class="surspace">{{newPatient.sex}}</td>
+		<td class="surspace">{{newPatient.age}}</td>
+	</tr>
+</table>
+		<form method="POST" action="/tolsys/{{newPatient.id}}/addans">
+		{% csrf_token %}
+		<p>Good day {{newPatient.fname.upper}}! Feel free to express yourself. Please answer this short interview of CACATOL.</p>
+		<fieldset class="surfset">
+		<br>
+		<label for="dttoday">Date Today:</label>
+		<input type="date" id="dttoday" name="dttoday" placeholder="mm / dd / yyyy" required>
+		<br><br>
+		<label for="sncwhen">Since when have you been experiencing depression? </label>
+		<input type="date" id="sncwhen" size="25" name="sncwhen" placeholder="mm / dd / yyyy or yyyy only" required>
+		<br><br>
+		<label for="md">How is your mood right now? </label>
+		<input type="text" id="md" size="25" name="md" placeholder="Please type here." required>
+		<br><br>
+		<label for="cs">Is there sudden event in your life that causes you to have that kind of mood? </label>
+		<input type="text" id="cs" size="25" name="cs" placeholder="Please type your experience here." required>
+		<br><br>
+		<label for="dcd">What made you decide to find immediate support? </label>
+		<input type="text" id="dcd" size="25" name="dcd" placeholder="Please type your experience here." required>
+		<input class="surbutton" id="btnSubmit" type="submit" value="Submit" name="submit">
+		<br>
+		</fieldset>
+		</form>
+		<br>
+		<div class="surdiv">
+		<table class="surveytab" id="surveyTable">
+			{% for item in newPatient.survey_set.all %}
+			<tr>
+				<td>{{forloop.counter}}.</td>
+				<td>Experience depression from {{item.sncwhen}}. Mood at this day ({{item.dttoday}})-{{item.md}} because of {{item.cs}}. Reason for immediate support {{item.dcd}}. <a href="/tolsys/edit/{{ newPatient.id }}">Edit</a> <a href="/tolsys/{{ newPatient.id }}/delete">Delete</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+		<form action="/tolsys/{{newPatient.id}}/addappointment">
+			<input class="surbutton" id="btnAppointment" type="submit" value="Next" name="submit">
+		</form>
+		<div>
+	{% endblock %}

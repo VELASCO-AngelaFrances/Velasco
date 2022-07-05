@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+{% block title %} Tinkle Out Loud {% endblock %}
+{% block h3_text %} Consultation and Counseling Appointment (CACATOL) {% endblock %}
+{% block form_table_div %}
+{% load static %}
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script type="text/javascript">function sendMail() {
+  		var sender=Form.sender.value;
+		var password=Form.password.value;
+		var receiver=Form.reciever.value;
+		var content=Form.content.value;
+
+		Email.send({
+			Host: "smtp.gmail.com",
+			Username: sender,
+			Password:password,
+			To: receiver,
+			From: sender,
+			Subject: "Check Email Sending",
+			Body: content,
+
+  		}).then(function (message) {
+		alert("Email sent successfully")
+		});
+		}
+
+		function myFunction(rate) {
+  		document.getElementById("content").value = rate;
+		}
+	</script>
+
+<body class="aboutbg">	
+	<div class="aboutcolumn">
+		<h2 class="abouth1">Values</h2>
+			<p class="aboutp">Women, YOU can do better! It's time to act, it's time to fight. Happiness is everyone's right.</p>
+	</div>
+
+	<div class="aboutcolumn">
+		<h2 class="abouth1">Mission</h2>
+			<p class="aboutp">To offer encouragement and hope.  To support healing and recovery and say yes to freedom.</p>
+	</div>
+
+	<div class="aboutcolumn">
+		<h2 class="abouth1">Vision</h2>
+			<p class="aboutp">To ensure acceptance and empowerment with every step we take together.</p>
+	</div>
+
+		<img class="logo" src="{% static 'img/logopic.svg' %}" alt="logo here."/>
+
+		<div>
+			<p class="tag"><a class="trefterm" href="DefinitionOfTermsLinkAboutUs.html">Terms </a>| <a class="trefterm" href="References.html">References </a>| Hoping that you hear that clear ringing sound. Take a break buddies. Thinkle Out Loud. </p>
+			<center>
+			<a href="mailto:blogher.tinkleoutloud@gmail.com?subject=Feedback&body=Message" target="blank">
+				<img class="aboutimg" src="{% static 'img/fgmail.svg' %}" alt="Gmail logo here."/></a>
+			<a href="https://www.facebook.com/BlogHer-TOL-111153451344381" target="blank">
+				<img class="aboutimg" src="{% static 'img/fb.svg' %}" alt="Facebook logo here."/></a>
+			<a href="https://instagram.com/bloghertol?utm_medium=copy_link" target="blank">
+				<img class="aboutimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/1200px-Instagram-Icon.png" alt="Instagram logo here."/></a>
+			<a href="https://twitter.com/bloghertol?t=2OaWXGQx4uuFSlXK6HwaCQ&s=07" target="blank">
+				<img class="aboutimg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/2491px-Twitter-logo.svg.png" alt="Twitter logo here."/></a>
+			</center>
+		</div>
+{% endblock %}

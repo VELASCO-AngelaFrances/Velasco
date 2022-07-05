@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+{% block title %} Tinkle Out Loud {% endblock %}
+{% block h3_text %} Consultation and Counseling Appointment (CACATOL) {% endblock %}
+{% block form_table_div %}
+{% load static %}
+
+	<form method="POST" action="/tolsys/edit/update/{{ newPatient.id }}">
+		{% csrf_token %}
+		<fieldset class="surfset">
+		<br>
+		<label for="dttoday">Date Today:</label>
+		{% for item in newPatient.survey_set.all %}
+		<input type="date" id="dttoday" name="dttoday" placeholder="mm / dd / yyyy" value="{{item.dttoday}}" required >
+		<br><br>
+		<label for="sncwhen">Since when have you been experiencing depression? </label>
+		<input type="date" id="sncwhen" size="25" name="sncwhen" placeholder="mm / dd / yyyy or yyyy only" value="{{item.sncwhen}}" required> 
+		<br><br>
+		<label for="md">How is your mood right now? </label>
+		<input type="text" id="md" size="25" name="md" placeholder="Please type here." value="{{item.md}}" required>
+		<br><br>
+		<label for="cs">Is there sudden event in your life that causes you to have that kind of mood? </label>
+		<input type="text" id="cs" size="25" name="cs" placeholder="Please type your experience here." value="{{item.cs}}" required>
+		<br><br>
+		<label for="dcd">What made you decide to find immediate support? </label>
+		<input type="text" id="dcd" size="25" name="dcd" placeholder="Please type your experience here." value="{{item.dcd}}" required>
+		<!-- <input class="surbutton" id="btnSubmit" type="submit" value="Submit" name="submit"> -->
+		<button type="submit">Update</button>
+		{% endfor %}
+		<br>
+		</fieldset>
+	</form>
+{% endblock %}
